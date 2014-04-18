@@ -2,8 +2,9 @@
   "name": "paper-tabs",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#master",
-    "core-layout": "Polymer/core-layout#master",
-    "core-selector": "Polymer/core-selector#master"
-  }
+    "polymer": "Polymer/polymer#0.2.3",
+    "core-layout": "Polymer/core-layout#0.2.3",
+    "core-selector": "Polymer/core-selector#0.2.3"
+  },
+  "version": "0.2.3"
 }
