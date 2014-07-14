@@ -38,6 +38,12 @@ To change the sliding bar color:
 @extends core-selector
 @homepage github.io
 -->
+<!--
+Fired when the selected tab is changed. This event's srcElement and target is the selected
+tab in the list.
+
+@event tab-selected
+-->
 
 <link rel="import" href="../core-selector/core-selector.html">
 <link rel="import" href="paper-tab.html">
@@ -80,6 +86,10 @@ To change the sliding bar color:
     activateEvent: 'down',
     
     nostretch: false,
+
+    selectedChanged: function () {
+      this.fire('tab-selected', {value:this.selectedItem});
+    },
     
     selectedIndexChanged: function(old) {
       var s = this.$.selectionBar.style;
