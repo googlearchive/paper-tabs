@@ -39,9 +39,9 @@ To change the ink color:
 
   <link rel="stylesheet" href="paper-tab.css">
   
-  <div id="tabContainer" center-justified center horizontal layout>
+  <div id="tabContainer">
   
-    <div class="tab-content"><content></content></div>
+    <div class="tab-content" center-justified center horizontal layout><content></content></div>
     <paper-ripple id="ink" initialOpacity="0.95" opacityDecayVelocity="0.98"></paper-ripple>
     
   </div>
@@ -58,7 +58,25 @@ To change the ink color:
      * @type boolean
      * @default false
      */
-    noink: false
+    noink: false,
+
+    eventDelegates: {
+      down: 'downAction'
+    },
+
+    /**
+     * Intercept the down action on the button and explicitly pass to the ripple
+     * @param {Event} e The down event containing, at least, an x & y property
+     */
+    downAction: function(e) {
+      if (!this.noink && !this.parentElement.noink) {
+        var ripple = this.shadowRoot.querySelector('paper-ripple');
+        if (ripple) {
+          ripple.downAction(e);
+          ripple.upAction();
+        }
+      }
+    }
     
   });
   
