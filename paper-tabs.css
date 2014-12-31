@@ -43,10 +43,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 .scroll-button > paper-icon-button {
   transition: opacity 0.18s;
+  vertical-align: middle;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .scroll-button > .hidden {
   opacity: 0;
+  pointer-events: none;
 }
 
 #selectionBar {
