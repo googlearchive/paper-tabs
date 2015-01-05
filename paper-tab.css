@@ -11,6 +11,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   position: relative;
   overflow: hidden;
   cursor: default;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .tab-content {
