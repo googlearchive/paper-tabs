@@ -33,6 +33,7 @@ To change the ink color:
 -->
 
 <link rel="import" href="../paper-ripple/paper-ripple.html">
+<link href="../core-a11y-keys/core-a11y-keys.html" rel="import">
 
 <polymer-element name="paper-tab" attributes="noink" role="tab" inline flex center-center horizontal layout>
 <template>
@@ -41,7 +42,8 @@ To change the ink color:
   
   <div class="tab-content" flex auto center-center horizontal layout><content></content></div>
   <paper-ripple id="ink" initialOpacity="0.95" opacityDecayVelocity="0.98"></paper-ripple>
-  
+  <core-a11y-keys keys="space enter" target="{{}}" on-keys-pressed="{{_activate}}"></core-a11y-keys>
+
 </template>
 <script>
 
@@ -74,6 +76,11 @@ To change the ink color:
     
     cancelRipple: function() {
       this.$.ink.upAction();
+    },
+    
+    _activate: function() {
+      this.click();
+      this.fire('tap');
     }
     
   });
